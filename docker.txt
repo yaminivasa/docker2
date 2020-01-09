@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+#   $ curl -fsSL https://get.docker.com -o get-docker.sh
+#   $ sh get-docker.sh
+
+#   $ curl -fsSL https://test.docker.com -o test-docker.sh
+#   $ sh test-docker.sh
+
+
+#       located at https://github.com/docker/docker-install
+
+# Git commit from https://github.com/docker/docker-install when
+SCRIPT_COMMIT_SHA="${LOAD_SCRIPT_COMMIT_SHA}"
+
+DEFAULT_CHANNEL_VALUE="stable"
+if [ -z "$CHANNEL" ]; then
+	CHANNEL=$DEFAULT_CHANNEL_VALUE
+fi
+
+DEFAULT_DOWNLOAD_URL="https://download.docker.com"
+if [ -z "$DOWNLOAD_URL" ]; then
+	DOWNLOAD_URL=$DEFAULT_DOWNLOAD_URL
+fi
+
+DEFAULT_REPO_FILE="docker-ce.repo"
+if [ -z "$REPO_FILE" ]; then
+	REPO_FILE="$DEFAULT_REPO_FILE
+fi
+		
